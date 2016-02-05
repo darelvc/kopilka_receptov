@@ -4,16 +4,22 @@
 	</header>
 	<article class="entry">
 		<figure>
-			<%= image_tag @recipe_day.recipe_image.url(:large) %>
-			<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>Просмотреть рецепт</span></a></figcaption>
+			<%= image_tag obj.recipe_image.url(:large) %>
+			<figcaption>
+				<%= link_to recipe_path(obj) do %>
+					<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
+				<% end %>
+			</figcaption>
 		</figure>
 		<div class="container">
-			<h2><a href="recipe.html"><%= @recipe_day.title %></a></h2>
-			<p><%= raw @recipe_day.summary.truncate(120)%></p>
+			<h2><%= link_to recipe_path(obj) do %><%= obj.title %><% end %></h2>
+			<p><%= raw obj.summary.truncate(120)%></p>
 			<div class="actions">
 				<div>
-					<a href="#" class="button">Рецепт полностью</a>
-					<div class="more"><a href="recipes2.html">See past recipes of the day</a></div>
+					<%= link_to 'Рецепт полностью', recipe_path(obj), class: "button" %>
+					<div class="more">
+						<%= link_to 'Просмотреть рецепт дня', recipe_path(obj) %>
+					</div>
 				</div>
 			</div>
 		</div>

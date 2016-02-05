@@ -32,4 +32,24 @@ class Recipe < ActiveRecord::Base
   def commentable_state
     "published"
   end
+
+  # Return the current recipe of the day
+  def self.recipe_of_the_day
+    self.find_by_top(true)
+  end
+
+  # Set up the recipe of the day
+  def self.setup_recipe_of_the_day
+    current_recipe = self.recipe_of_the_day
+
+    recipe_ids = self.all(
+      :select => "id",
+      :conditions => ['id != ?', current_recipe.id]
+    )
+
+    next_recipe = self.find(recipe_ids[rand(recipe_ids.length)])
+
+    current_recipe.update_attribute(:top, false)
+    next_recipe.update_attribute(:top, true)
+  end
 end

@@ -5,6 +5,16 @@ $highlight: #d2674e;
 $dark: #22292e;
 $light: #EDEFF5;
 
+body {
+	font: 14px/1.42 'Open Sans',Arial,Helvetica,sans-serif;
+	text-align: center;
+	color: #444;
+	background: #DECEB9 image-url("bgr/body.jpg") 0 0 repeat;
+	overflow-x: hidden;
+	word-wrap: break-word;
+	text-rendering: optimizeLegibility;
+}
+
 #notice_wrapper {
 	width: 100%;
 	position: absolute;
@@ -124,4 +134,5 @@ $light: #EDEFF5;
 
 @import 'recipes';
 @import 'animate';
+//@import 'normalize';
 @import 'the_comments';

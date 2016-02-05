@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require jquery.slicknav.min.js
 //= require cocoon
+//= require jquery.uniform.min.js
+//= require scripts.js
+//= require wow.min.js
 //= require turbolinks
 //= require ckeditor/init
-//= require_tree .
+//= require the_comments.js.coffee
+//= require the_comments_manage.js.coffee
