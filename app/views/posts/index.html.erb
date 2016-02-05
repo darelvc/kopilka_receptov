@@ -42,7 +42,7 @@
 										<%= post.title %>
 									<% end %>
 								</h2>
-								<p><%= truncate(post.content, length: 200) %> </p>
+								<p><%= raw post.content.truncate(200) %> </p>
 							</div>
 							<div class="actions">
 								<div>

@@ -17,10 +17,10 @@
 					
 					<% unless current_user == user_session %>
 						<div class="chefs_links">
-							<%= link_to "Редактировать профиль", edit_chef_registration_path, class: "button chef" %>
+							<%= link_to "Редактировать профиль", edit_user_registration_path, class: "button chef" %>
 						</div>
 						<div class="chefs_links">
-							<%= link_to "Выйти из аккаунта", destroy_chef_session_path, method: :delete, class: "button chef gold light" %>
+							<%= link_to "Выйти из аккаунта", destroy_user_session_path, method: :delete, class: "button chef gold light" %>
 						</div>
 					<% end %>
 				</div>
@@ -41,15 +41,15 @@
 						<div class="row">
 							<dl class="basic two-third">
 								<dt>Name</dt>
-								<dd><%= @chef.chefname %></dd>
+								<dd><%= @user.chefname %></dd>
 								<dt>Адресс</dt>
-								<dd><%= @chef.adress %></dd>
+								<dd>111</dd>
 								<dt>Любимые блюда</dt>
 								<dd>Blender, sharp knife</dd>
 								<dt>Любимые ингредиенты</dt>
 								<dd>Chilli, Oregano, Basil</dd>
 								<dt>Рецептов опубликовано</dt>
-								<dd><%= @chef.recipes.count %></dd>
+								<dd><%= @user.recipes.count %></dd>
 								<dt>Статей опубликовано</dt>
 								<dd>9</dd>
 							</dl>
@@ -77,7 +77,7 @@
 					<div class="tab-content" id="recipes">
 						<div class="entries row">
 							<!--item-->
-							<% @chef.recipes.each_slice(3) do |recipes| %>
+							<% @user.recipes.each_slice(3) do |recipes| %>
 								<div class="entries row">
 									<% recipes.each do |recipe| %>
 										<div class="entry one-third wow fadeInLeft">
@@ -90,7 +90,7 @@
 												</figcaption>
 											</figure>
 											<div class="container">
-												<h2><%= link_to recipe_path(recipe) do %><%= recipe.name %><% end %></h2>
+												<h2><%= link_to recipe_path(recipe) do %><%= recipe.title %><% end %></h2>
 												<div class="actions">
 													<div>
 														<div class="difficulty"><i class="ico i-medium"></i><a href="#"><%= recipe.difficulty %></a></div>

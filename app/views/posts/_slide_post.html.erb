@@ -1,0 +1,27 @@
+<div class="entries row">
+	<% obj.each do |post| %>
+		<div class="entry one-third wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
+			<figure>
+				<%= image_tag post.post_image.url(:small) %>
+				<figcaption>
+					<%= link_to post_path(post) do %>
+						<i class="ico i-view"></i> <span>Просмотреть статью</span>
+					<% end %>
+				</figcaption>
+			</figure>
+			<div class="container">
+				<h2><%= link_to post_path(post) do %><%= post.title %><% end %></h2>
+				<div class="actions">
+					<div>
+						<div class="date"><i class="ico i-date"></i><a href="#"><%= post.created_at.strftime("%d. %b. %Y") %></a></div>
+						<div class="comments"><i class="ico i-comments"></i><a href="blog_single.html#comments">27</a></div>
+					</div>
+				</div>
+				<div class="excerpt">
+					<p><%= raw post.content.truncate(100)%></p>
+				</div>
+			</div>
+		</div>
+		<!--item-->
+	<% end %>
+</div>

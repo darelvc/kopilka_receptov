@@ -1,0 +1,21 @@
+<div class="featured two-third wow fadeInLeft">
+	<header class="s-title">
+		<h2 class="ribbon">Рецепт Дня</h2>
+	</header>
+	<article class="entry">
+		<figure>
+			<%= image_tag @recipe_day.recipe_image.url(:large) %>
+			<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>Просмотреть рецепт</span></a></figcaption>
+		</figure>
+		<div class="container">
+			<h2><a href="recipe.html"><%= @recipe_day.title %></a></h2>
+			<p><%= raw @recipe_day.summary.truncate(120)%></p>
+			<div class="actions">
+				<div>
+					<a href="#" class="button">Рецепт полностью</a>
+					<div class="more"><a href="recipes2.html">See past recipes of the day</a></div>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>

@@ -25,6 +25,8 @@ gem "the_comments", "~> 2.2.1"
 gem 'haml'               
 gem 'awesome_nested_set' 
 
+gem 'whenever', :require => false
+
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do

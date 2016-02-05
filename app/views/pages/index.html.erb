@@ -64,7 +64,7 @@
 				<section class="content full-width">
 					<div class="icons dynamic-numbers">
 						<header class="s-title wow fadeInDown">
-							<h2 class="ribbon large">SocialChef in numbers</h2>
+							<h2 class="ribbon large">Ваша Копилка Рецептов</h2>
 						</header>
 					
 					</div>
@@ -78,26 +78,7 @@
 						<!--entries-->
 						<div class="entries row">
 							<!--featured recipe-->
-							<div class="featured two-third wow fadeInLeft">
-								<header class="s-title">
-									<h2 class="ribbon">Рецепт Дня</h2>
-								</header>
-								<article class="entry">
-									<figure>
-										
-										<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>Просмотреть рецепт</span></a></figcaption>
-									</figure>
-									<div class="container">
-										
-										<div class="actions">
-											<div>
-												<a href="#" class="button">Рецепт полностью</a>
-												<div class="more"><a href="recipes2.html">See past recipes of the day</a></div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
+							<%= render 'recipes/recipe_of_the_day' %>
 							<!--//featured recipe-->
 
 							<!--featured member-->
@@ -123,12 +104,48 @@
 								</article>
 							</div>
 							<!--//featured member-->
-							</div>
-							</div>
-							</section>
-							</div>
-							</div>
-							</main>
-						<!-- 	</body> -->
+						</div>
+						<!--//entries-->
+					</div>
+					<!--//cwrap-->
+				
+					<!--cwrap-->
+					<div class="cwrap">
+						<header class="s-title">
+							<h2 class="ribbon bright">Последние рецепты</h2>
+						</header>
+						
+						<!--entries-->
+						<%= render 'recipes/slide_recipe', obj: @last_recipe %>
+						<%= render 'pages/more_recipes' %>
+						<!--//entries-->
+					</div>
+					<!--//cwrap-->
+				
+					<!--cwrap-->
+					<div class="cwrap">
+						<h2 class="ribbon bright">Последние статьи</h2>
+						<!--entries-->
+						<%= render 'posts/slide_post', obj: @last_post %>
+						<%= render 'pages/more_posts' %>
+						<!--//entries-->
+					</div>
+					<!--//cwrap-->
+				</section>
+				<!--//content-->
+		
+			
+				<!--right sidebar-->
+				<%= render 'pages/sidebar' %>
+			</div>
+			<!--//right sidebar-->
+		</div>
+		<!--//wrap-->
+	</main>
+	<!--//main-->
+	
+	<!--call to action-->
+	<%= render 'pages/call_to_action' %>
+	<!--//call to action-->
 				
 
