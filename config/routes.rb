@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/index', to: "pages#index"
   get '/contacts', to: "pages#contact"
+  get '/eat_eyes', to: "recipes#eat_eyes"
 
   resources :recipes
   resources :posts

@@ -1,0 +1,26 @@
+<!--main-->
+<main class="main" role="main">
+	<!--wrap-->
+	<div class="wrap clearfix">
+		<!--row-->
+		<div class="row">
+			<header class="s-title">
+				<h1>Едим глазами</h1>
+			</header>
+			<% @eat_eyes.each do |recipe| %>
+				<div class="entry one-fourth wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
+					<figure>
+						<%= image_tag recipe.recipe_image.url(:medium) %>
+						<figcaption>
+							<%= link_to recipe_path(recipe) do %>
+								<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
+							<% end %>
+						</figcaption>
+					</figure>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<!--//wrap-->
+</main>
+<!--//main-->

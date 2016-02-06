@@ -1,8 +1,17 @@
-<%= javascript_include_tag 'Ckeditor.cdn_url' %>
 <!--main-->
 <main class="main" role="main">
 	<!--wrap-->
 	<div class="wrap clearfix">
+
+		<!--breadcrumbs-->
+		<nav class="breadcrumbs">
+			<ul>
+				<li><%= link_to 'Главная', root_path %></li>
+				<li><%= link_to 'Рецепты', recipes_path %></li>
+				<li><%= @recipe.title %></li>
+			</ul>
+		</nav>
+		<!--//breadcrumbs-->
 		
 		<% # Meta information for the <head> section %>
 		<% title @recipe.title %>

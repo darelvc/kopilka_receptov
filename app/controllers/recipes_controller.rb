@@ -42,6 +42,10 @@ class RecipesController < ApplicationController
 		end
 	end
 
+	def eat_eyes
+		@eat_eyes = Recipe.order("RANDOM()")
+	end
+
 	private
 
 	def find_recipe
