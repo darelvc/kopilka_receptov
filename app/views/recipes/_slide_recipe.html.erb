@@ -14,7 +14,12 @@
 				<div class="actions">
 					<div>
 						<div class="difficulty"><i class="ico i-medium"></i><%= link_to recipe_path(recipe) do %><%= recipe.difficulty %><% end %></div>
-						<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
+						<div class="likes">
+						<%= link_to like_recipe_path(recipe), method: :get do %>
+							<i class="ico i-likes"></i>
+							<%= recipe.get_likes.size %>
+						<% end %>
+						</div>
 						<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">7</a></div>
 					</div>
 				</div>

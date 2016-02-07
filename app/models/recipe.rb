@@ -1,5 +1,6 @@
 class Recipe < ActiveRecord::Base
 	include TheComments::Commentable
+  acts_as_votable
 
 	belongs_to :user
 	#has_many :comments

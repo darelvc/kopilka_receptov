@@ -8,7 +8,12 @@ Rails.application.routes.draw do
   get '/contacts', to: "pages#contact"
   get '/eat_eyes', to: "recipes#eat_eyes"
 
-  resources :recipes
+  resources :recipes do
+    member do
+      get "like", to: "recipes#upvote"
+      get "dislike", to: "recipes#downvote" 
+    end
+  end
   resources :posts
   resources :categories, only: [:new, :create, :show]
 

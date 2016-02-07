@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-	before_action :find_recipe, only: [:show, :edit, :update, :destroy]
+	before_action :find_recipe, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
@@ -40,6 +40,21 @@ class RecipesController < ApplicationController
 		else
 			render 'edit'
 		end
+	end
+
+	def destroy
+		@recipe.destroy
+		redirect_to root_path
+	end
+
+	def upvote
+		@recipe.upvote_by current_user
+		redirect_to :back
+	end
+
+	def downvote
+		@recipe.downvote_by current_user
+		redirect_to :back
 	end
 
 	def eat_eyes
