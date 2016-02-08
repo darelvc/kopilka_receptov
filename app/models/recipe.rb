@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
 	include TheComments::Commentable
-  acts_as_votable :vote_counter => true
+  acts_as_votable
 
 	belongs_to :user
 	#has_many :comments
@@ -17,7 +17,7 @@ class Recipe < ActiveRecord::Base
 	# 															reject_if: proc { |attributes| attributes['quantity'].blank? },
 	# 															allow_destroy: true										
 
-	has_attached_file :recipe_image, styles: { large: "570x427#", medium: "270x203#" }
+	has_attached_file :recipe_image, styles: { large: "570x427#", medium: "270x203#", small: "90x68#" }
 	validates_attachment_content_type :recipe_image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	# Denormalization methods

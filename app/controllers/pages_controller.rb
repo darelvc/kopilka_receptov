@@ -10,7 +10,7 @@ class PagesController < ApplicationController
 		@recent_comments = Comment.with_state(:published)
                        .where(commentable_state: [:published])
                        .recent.page(params[:page])
-    @most_liked = Recipe.order("vote_total DESC").limit(5)
+    @most_liked = Recipe.order("cached_votes_up DESC").limit(5)
 	end
 
 	def contacts

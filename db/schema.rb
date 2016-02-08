@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207174454) do
+ActiveRecord::Schema.define(version: 20160208100513) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,7 +113,16 @@ ActiveRecord::Schema.define(version: 20160207174454) do
     t.integer  "recipe_image_file_size"
     t.datetime "recipe_image_updated_at"
     t.boolean  "top",                       default: false, null: false
+    t.integer  "cached_votes_total",        default: 0
+    t.integer  "cached_votes_score",        default: 0
+    t.integer  "cached_votes_up",           default: 0
+    t.integer  "cached_votes_down",         default: 0
   end
+
+  add_index "recipes", ["cached_votes_down"], name: "index_recipes_on_cached_votes_down", using: :btree
+  add_index "recipes", ["cached_votes_score"], name: "index_recipes_on_cached_votes_score", using: :btree
+  add_index "recipes", ["cached_votes_total"], name: "index_recipes_on_cached_votes_total", using: :btree
+  add_index "recipes", ["cached_votes_up"], name: "index_recipes_on_cached_votes_up", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                       default: "", null: false
