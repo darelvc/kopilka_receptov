@@ -161,6 +161,15 @@ body {
   height: 100%;
 }
 
+#rec_border {
+	margin: 1em auto;
+  padding: 1em;
+  border: 2px dashed #ccc;
+  box-shadow:
+    0 0 0 1px #ccc,
+    inset 0 0 0 1px #ccc;
+}
+
 @import 'recipes';
 @import 'animate';
 //@import 'normalize';

@@ -1,6 +1,7 @@
 class SearchesController < ApplicationController
 	def index
-		@search = ThinkingSphinx.search(params[:search])
+		#@search = ThinkingSphinx.search(params[:search])
+		@search = Recipe.search(params[:search])
 	end
 
 	def create
