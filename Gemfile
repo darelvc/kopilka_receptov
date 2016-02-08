@@ -26,8 +26,10 @@ gem 'haml'
 gem 'awesome_nested_set' 
 
 gem 'whenever', :require => false
-
 gem 'acts_as_votable', '~> 0.10.0'
+
+gem 'thinking-sphinx', '~> 3.1.4'
+gem 'mysql2'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

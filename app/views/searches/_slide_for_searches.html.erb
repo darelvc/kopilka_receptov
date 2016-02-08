@@ -1,0 +1,34 @@
+<div class="entries row">
+	<% obj.each do |recipe| %>
+		<div class="entry one-fourth wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
+			<figure>
+				<%= image_tag recipe.recipe_image.url(:medium) %>
+				<figcaption>
+					<%= link_to recipe_path(recipe) do %>
+						<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
+					<% end %>
+				</figcaption>
+			</figure>
+			<div class="container">
+				<h2><%= link_to recipe_path(recipe) do %><%= recipe.title %><% end %></h2>
+				<div class="actions">
+					<div>
+						<div class="difficulty"><i class="ico i-medium"></i><%= link_to recipe_path(recipe) do %><%= recipe.difficulty %><% end %></div>
+						<div class="likes">
+						<%= link_to like_recipe_path(recipe), method: :get do %>
+							<i class="ico i-likes"></i>
+							<%= recipe.get_likes.size %>
+						<% end %>
+						</div>
+						<div class="comments">
+							<%= link_to recipe_path(recipe) do %>
+								<i class="ico i-comments"></i>
+								<%= recipe.comments.count %>
+							<% end %>	
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+</div>

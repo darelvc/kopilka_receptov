@@ -45,7 +45,11 @@
 		
 		<nav class="user-nav" role="navigation">
 			<ul>
-				<li class="light"><a href="find_recipe.html" title="Поиск рецептов"><i class="ico i-search"></i> <span>Поиск рецептов</span></a></li>
+				<li class="light">
+				<%= link_to searches_path, title: "Поиск рецептов" do %>
+					<i class="ico i-search"></i> <span>Поиск рецептов</span>
+				<% end %>
+				</li>
 				<li class="medium">
 					<% if user_signed_in? %>
 						<%= link_to user_path(current_user), title: "Мой аккаунт" do %>

@@ -7,9 +7,6 @@ class PagesController < ApplicationController
 		@last_post = Post.all.order("created_at DESC").limit(3)
 		@recipe_of_the_day = Recipe.recipe_of_the_day
 
-		@recent_comments = Comment.with_state(:published)
-                       .where(commentable_state: [:published])
-                       .recent.page(params[:page])
     @most_liked = Recipe.order("cached_votes_up DESC").limit(5)
 	end
 

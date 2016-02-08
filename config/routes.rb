@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :posts
   resources :categories, only: [:new, :create, :show]
 
+  resources :searches
+
   # TheComments routes
   concern   :user_comments,  TheComments::UserRoutes.new
   concern   :admin_comments, TheComments::AdminRoutes.new

@@ -1,0 +1,77 @@
+<!--main-->
+<main class="main" role="main">
+	<!--wrap-->
+	<div class="wrap clearfix">
+		<!--breadcrumbs-->
+		<nav class="breadcrumbs">
+			<ul>
+				<li><%= link_to 'Главная', root_path %></li>
+				<li>Поиск по сайту</li>
+			</ul>
+		</nav>
+		<!--//breadcrumbs-->
+
+		<!--row-->
+		<div class="row">
+			<header class="s-title wow fadeInLeft">
+				<h1>Поиск по сайту</h1>
+			</header>
+
+			<!--content-->
+			<section class="content full-width wow fadeInUp">
+				<!--recipefinder-->
+				<div class="container recipefinder">
+					<div class="left">
+						<h3>Поиск по ингредиентам</h3>
+						<p>Click the ‘-’ to remove an ingredient, or click the ingredient itself to emphasize</p>
+						<div class="f-row">
+							<input type="text" placeholder="Добавить ингредиент (one at a time)" />
+							<button class="add">+</button>
+						</div>
+						<div class="f-row">
+							<input type="text" value="garlic" />
+							<button class="remove">-</button>
+						</div>
+						<div class="f-row">
+							<input type="submit" value="Search" />
+						</div>
+					</div>
+					<div class="right">
+						<div class="ingredients">
+							<h3>Do you also have?</h3>
+							<a href="#" class="button gold">Olive oil</a><a href="#" class="button gold">Parsley</a><a href="#" class="button gold">Tomato</a><a href="#" class="button gold">Olive oil</a><a href="#" class="button gold">Parsley</a><a href="#" class="button gold">Tomato</a><a href="#" class="button gold">Parsley</a><a href="#" class="button gold">Tomato</a><a href="#" class="button gold">Olive oil</a><a href="#" class="button gold">Parsley</a><a href="#" class="button gold">Tomato</a>
+						</div>
+						
+						<h3>Or you might want to search directly</h3>
+						<div class="row">
+							<div class="search one-half">
+								<%= form_tag(searches_path, :method => "get", id: "search-form") do %>
+							    <%= text_field_tag :search, params[:search], placeholder: "Найти рецепт" %>
+							    <%= submit_tag "Search", :name => nil %>
+								<% end %>
+							</div>
+							
+							<div class="one-half">
+								<select>
+									<option>or select a category</option>
+									<option>Apetizers</option>
+									<option>Cocktails</option>
+									<option>Deserts</option>
+									<option>Main courses</option>
+									<option>Snacks</option>
+									<option>Soups</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--//recipefinder-->
+			</section>
+			<%= render 'searches/slide_for_searches', obj: @search %>
+			<!--//content-->
+		</div>
+		<!--//row-->
+	</div>
+	<!--//wrap-->
+</main>
+<!--//main-->
