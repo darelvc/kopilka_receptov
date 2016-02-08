@@ -6,7 +6,7 @@ $dark: #22292e;
 $light: #EDEFF5;
 
 body {
-	font: 14px/1.42 'Open Sans',Arial,Helvetica,sans-serif;
+	font: 14px/1.42 'Open Sans', sans-serif !important;
 	text-align: center;
 	color: #444;
 	background: #DECEB9 image-url("bgr/body.jpg") 0 0 repeat;
@@ -130,6 +130,35 @@ body {
   background-image: none;
   border: 1px solid transparent;
   border-radius: 4px;
+}
+
+.ingr {
+	width: 100%;
+  background: #DBBC94 !important;
+  text-align: center;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+} 
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 @import 'recipes';

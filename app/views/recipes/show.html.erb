@@ -34,6 +34,9 @@
 								<% end %>
 							</div>
 							<div class="intro" data-no-turbolink><p><%= raw @recipe.summary %></p></div>
+							<div class="embed-container">  
+  							<%= embed("https://www.youtube.com/watch?v=ray1ikdTaoE") %>
+							</div>
 							<div class="instructions" data-no-turbolink>
 								<ol>
 									<li><%= raw @recipe.description %></li>
@@ -65,7 +68,9 @@
 								<dt>Автор</dt>
 								<dd><%= link_to "#{@recipe.user.chefname}", user_path(@recipe.user) %></dd>
 							</dl>
-							
+						
+							<dt class="ingr">Ингредиенты:</dt>
+
 							<dl class="ingredients">
 								<% @recipe.ingredients.each do |ing| %>
 									<dt><%= ing.quantity %></dt>

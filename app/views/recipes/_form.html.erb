@@ -53,6 +53,10 @@
 			</div>
 		</section>
 
+		<div class="embed-container">  
+  		<%= embed(@recipe.youtube_url) %>
+		</div>  
+
 		<div class="f-row full">
 			<%= f.submit(@recipe.new_record? ? 'Создать рецепт' : 'Отредактировать рецепт', class: "button", :id => "submitRecipe") %>
 		</div>
