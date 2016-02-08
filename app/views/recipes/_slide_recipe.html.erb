@@ -20,7 +20,12 @@
 							<%= recipe.get_likes.size %>
 						<% end %>
 						</div>
-						<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">7</a></div>
+						<div class="comments">
+							<%= link_to recipe_path(recipe) do %>
+								<i class="ico i-comments"></i>
+								<%= recipe.comments.count %>
+							<% end %>	
+						</div>
 					</div>
 				</div>
 			</div>

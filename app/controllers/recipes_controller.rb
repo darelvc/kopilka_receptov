@@ -8,9 +8,7 @@ class RecipesController < ApplicationController
 
 	def show
 		@comments = @recipe.comments.with_state([:draft, :published])
-
 		#@category = Category.find(params[:id])
-
 		@random_recipe = Recipe.where.not(id: @recipe).order("RANDOM()").first
 	end
 
