@@ -31,10 +31,10 @@
 				<nav class="foot-nav">
 					<ul>
 						<li><%= link_to 'Главная', root_path, :title => "Главная" %></li>
-						<li><a href="recipes.html" title="Recipes">Рецепты</a></li>
-						<li><a href="blog.html" title="Blog">Статьи</a></li>
-						<li><a href="contact.html" title="Contact">Контакты</a></li>    
-						<li><a href="find_recipe.html" title="Search for recipes">Поиск рецептов</a></li>
+						<li><%= link_to 'Рецепты', recipes_path, :title => "Рецепты" %></li>
+						<li><%= link_to 'Статьи', posts_path, :title => "Статьи" %></li>
+						<li><%= link_to 'Контакты', contacts_path, :title => "Контакты" %></li>    
+						<li><%= link_to 'Поиск рецептов', searches_path, :title => "Поиск рецептов" %></li>
 						<li><%= link_to 'Войти', new_user_session_path, :title => "Войти" %></li>	
 						<li><%= link_to 'Регистрация', new_user_registration_path, :title => "Регистрация" %></li>												
 					</ul>
