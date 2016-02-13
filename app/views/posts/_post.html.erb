@@ -1,15 +1,21 @@
-<div class="entries row">
-		<div class="entry one-third wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
-			<figure>
-				<%= image_tag @search.url(:medium) %>
-				<figcaption>
-					<%= link_to @search do %>
-						<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
-					<% end %>
-				</figcaption>
-			</figure>
-			<div class="container">
-				<h2><%= link_to @search do %><%= @search.title %><% end %></h2>
+<div class="entry one-fourth wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
+	<figure>
+		<%= image_tag post.post_image.url(:medium) %>
+		<figcaption>
+			<%= link_to post_path(post) do %>
+				<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
+			<% end %>
+		</figcaption>
+	</figure>
+	<div class="container">
+		<h2><%= link_to post_path(post) do %><%= post.title %><% end %></h2>
+		<div class="actions">
+			<div>
+				
+				<div class="comments">
+						
+				</div>
 			</div>
 		</div>
+	</div>
 </div>
