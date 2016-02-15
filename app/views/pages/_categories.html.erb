@@ -2,8 +2,7 @@
 	<h3>Категории рецептов</h3>
 	<ul class="boxed">
 		<li class="light">
-		<%= link_to searches_path, title: "Поиск рецептов" do %>
-		<a href="recipes.html" title="Закуски">
+		<%= link_to category_path(4), title: "Закуски" do %>
 		<i class="ico i-appetizers"></i> <span>Закуски</span></a>
 		<% end %>
 		<li class="medium"><a href="recipes.html" title="Коктейли"><i class="ico i-cocktails"></i> <span>Напитки</span></a></li>
