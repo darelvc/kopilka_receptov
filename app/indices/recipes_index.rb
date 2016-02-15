@@ -6,5 +6,6 @@ ThinkingSphinx::Index.define :recipe, with: :active_record do
 	indexes description
 
 	# attributes
-	has user_id, created_at, updated_at
+	#has user_id, created_at, updated_at
+	has category_ids, :type => :integer, :multi => true
 end

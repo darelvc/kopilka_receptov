@@ -75,170 +75,21 @@
 				
 					<!--my recipes-->
 					<div class="tab-content" id="recipes">
-						<div class="entries row">
-							<!--item-->
-							<% @user.recipes.each_slice(3) do |recipes| %>
-								<div class="entries row">
-									<% recipes.each do |recipe| %>
-										<div class="entry one-third wow fadeInLeft">
-											<figure>
-												<%= image_tag recipe.recipe_image.url(:medium) %>
-												<figcaption>
-													<%= link_to recipe_path(recipe) do %>
-														<i class="ico i-view"></i> <span>Просмотреть рецепт</span>
-													<% end %>
-												</figcaption>
-											</figure>
-											<div class="container">
-												<h2><%= link_to recipe_path(recipe) do %><%= recipe.title %><% end %></h2>
-												<div class="actions">
-													<div>
-														<div class="difficulty"><i class="ico i-medium"></i><a href="#"><%= recipe.difficulty %></a></div>
-														<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-														<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">7</a></div>
-													</div>
-												</div>
-											</div>
-										</div>
-									<% end %>
-								</div>
-							<% end %>
-							<!--item-->
-						</div>
+						<%= render 'recipes/slide_recipe', obj: @user.recipes %>
 					</div>
 					<!--//my recipes-->
 					
 					
 					<!--my favorites-->
 					<div class="tab-content" id="favorites">
-						<div class="entries row">
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img6.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">Thai fried rice with fruit and vegetables</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-medium"></i><a href="#">medium</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img5.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">Spicy Morroccan prawns with cherry tomatoes</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-hard"></i><a href="#">hard</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img8.jpg" alt="" />
-									<figcaption><a href="recipe.html"><i class="ico i-view"></i> <span>View recipe</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="recipe.html">Super easy blueberry cheesecake</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="difficulty"><i class="ico i-easy"></i><a href="#">easy</a></div>
-											<div class="likes"><i class="ico i-likes"></i><a href="#">10</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="recipe.html#comments">27</a></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-						</div>
+						<%= render 'recipes/slide_recipe', obj: @user.recipes.where("cached_votes_up >= 1") %>
 					</div>
 					<!--//my favorites-->
 					
 					<!--my posts-->
 					<div class="tab-content" id="posts">
 						<!--entries-->
-						<div class="entries row">
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img12.jpg" alt="" />
-									<figcaption><a href="blog_single.html"><i class="ico i-view"></i> <span>View post</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="blog_single.html">Barbeque party</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="date"><i class="ico i-date"></i><a href="#">22 Dec 2014</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="blog_single.html#comments">27</a></div>
-										</div>
-									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img11.jpg" alt="" />
-									<figcaption><a href="blog_single.html"><i class="ico i-view"></i> <span>View post</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="blog_single.html">How to make sushi</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="date"><i class="ico i-date"></i><a href="#">22 Dec 2014</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="blog_single.html#comments">27</a></div>
-										</div>
-									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-							
-							<!--item-->
-							<div class="entry one-third">
-								<figure>
-									<img src="images/img10.jpg" alt="" />
-									<figcaption><a href="blog_single.html"><i class="ico i-view"></i> <span>View post</span></a></figcaption>
-								</figure>
-								<div class="container">
-									<h2><a href="blog_single.html">Make your own bread</a></h2> 
-									<div class="actions">
-										<div>
-											<div class="date"><i class="ico i-date"></i><a href="#">22 Dec 2014</a></div>
-											<div class="comments"><i class="ico i-comments"></i><a href="blog_single.html#comments">27</a></div>
-										</div>
-									</div>
-									<div class="excerpt">
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod. Lorem ipsum dolor sit amet . . . </p>
-									</div>
-								</div>
-							</div>
-							<!--item-->
-						</div>
+						<%= render 'posts/slide_post', obj: @user.posts %>
 						<!--//entries-->
 					</div>
 					<!--//my posts-->

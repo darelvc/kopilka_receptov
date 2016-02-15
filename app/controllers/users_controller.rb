@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	def show
 		#@recipes = current_chef.recipes.find(params[:id])
 		@recipe = Recipe.find(params[:id])
+		@liked_recipe = @user.recipes.where("cached_votes_up >= 1")
 	end
 
 	def create
