@@ -1,0 +1,21 @@
+<div class="featured one-third wow fadeInLeft" data-wow-delay=".2s">
+	<header class="s-title">
+		<h2 class="ribbon star">Автор статей</h2>
+	</header>
+	<article class="entry">
+		<figure>
+			<%= image_tag @author.user_image.url(:medium), :alt => "#{@author.chefname}" %>
+			<figcaption><%= link_to user_path(@author) do %><i class="ico i-view"></i> <span>Все рецепты автора</span><% end %></figcaption>
+		</figure>
+		<div class="container">
+			<h2><%= link_to @author.chefname, user_path(@author) %></h2>
+			<blockquote>Traditional dishes and fine bakery products accompanied by beautiful photographs to bend around and attract the tryout! Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</blockquote>
+			<div class="actions">
+				<div>
+					<%= link_to 'Все рецепты автора', recipes_path, class: "button" %>
+					<div class="more"><%= link_to 'Посмотреть все рецепты автора', recipes_path %></div>
+				</div>
+			</div>
+		</div>
+	</article>
+</div>

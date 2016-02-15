@@ -13,7 +13,7 @@
 					<article class="three-fourth text wow zoomIn" data-wow-delay=".2s">
 						<h1>Добро пожаловать на кулинарный сайт «Копилка рецептов»!</h1>
 						<p>Здесь я хочу поделиться рецептами ставшими постоянными блюдами на моем столе, а также рецепты моих друзей и хороших знакомых. Моя кухня — это то место, где я могу создавать, экспериментировать, и готовить вкусные, здоровые блюда для всей моей семьи. И я надеюсь, что собранные мною рецепты пригодяться и моим дорогим читателям.</p>
-						<%= link_to 'Присоединяйтесь к нашему сообществу', root_path, class: "button white more medium" %>
+						<%= link_to 'Присоединяйтесь', root_path, class: "button white more medium" %>
 						<p>Уже зарегестрированы? Нажмите <a href="login.html">тут</a> для входа.</p>
 					</article>
 					
@@ -53,27 +53,7 @@
 							<!--//featured recipe-->
 
 							<!--featured member-->
-							<div class="featured one-third wow fadeInLeft" data-wow-delay=".2s">
-								<header class="s-title">
-									<h2 class="ribbon star">Featured member</h2>
-								</header>
-								<article class="entry">
-									<figure>
-										<%= image_tag("avatar2.jpg") %>
-										<figcaption><a href="my_profile.html"><i class="ico i-view"></i> <span>View member</span></a></figcaption>
-									</figure>
-									<div class="container">
-										<h2><a href="my_profile.html">Kimberly C.</a></h2>
-										<blockquote>Traditional dishes and fine bakery products accompanied by beautiful photographs to bend around and attract the tryout! Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</blockquote>
-										<div class="actions">
-											<div>
-												<a href="#" class="button">Check out her recipes</a>
-												<div class="more"><a href="#">See past featured members</a></div>
-											</div>
-										</div>
-									</div>
-								</article>
-							</div>
+							<%= render 'pages/author' %>
 							<!--//featured member-->
 						</div>
 						<!--//entries-->

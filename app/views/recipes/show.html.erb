@@ -67,6 +67,8 @@
                 <% end %>
 								<dt>Автор</dt>
 								<dd><%= link_to "#{@recipe.user.chefname}", user_path(@recipe.user) %></dd>
+								<dt>Дата</dt>
+								<dd><%= @recipe.created_at.strftime("%d. %b. %Y") %></dd>
 							</dl>
 						
 							<dt class="ingr">Ингредиенты:</dt>

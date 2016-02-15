@@ -7,6 +7,13 @@ module ApplicationHelper
     end
   end
 
+  def link_to_in_nav(body, url)
+    active = "current-menu-item" if current_page?(url)
+    content_tag :li, class: active do
+      link_to body, url
+    end
+  end
+
   def title(text)
     content_for :title, text
   end
