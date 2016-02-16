@@ -170,6 +170,10 @@ body {
     inset 0 0 0 1px #ccc;
 }
 
+.ingredient {
+	list-style: none;
+}
+
 @import 'recipes';
 @import 'animate';
 //@import 'normalize';

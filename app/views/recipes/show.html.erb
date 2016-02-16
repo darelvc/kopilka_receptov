@@ -17,9 +17,9 @@
 		<% title @recipe.title %>
 
 		<!--row-->
-		<div class="row">
+		<div class="row hrecipe">
 			<header class="s-title wow fadeInLeft">
-				<h1><%= @recipe.title %></h1>
+				<h1 class="fn"><%= @recipe.title %></h1>
 			</header>
 			<!--content-->
 			<section class="content three-fourth">
@@ -33,13 +33,14 @@
 									<%= image_tag @recipe.recipe_image.url(:large) %>
 								<% end %>
 							</div>
-							<div class="intro" data-no-turbolink><p><%= raw @recipe.summary %></p></div>
+							<div class="intro" data-no-turbolink><p class="summary"><%= raw @recipe.summary %></p></div>
 							<div class="embed-container">  
   							<%= embed("https://www.youtube.com/watch?v=ray1ikdTaoE") %>
 							</div>
 							<div class="instructions" data-no-turbolink>
+								<h2>Способ приготовления</h2>
 								<ol>
-									<li><%= raw @recipe.description %></li>
+									<li class="instruction"><%= raw @recipe.description %></li>
 								</ol>
 							</div>
 						</article>
@@ -48,7 +49,7 @@
 						<!--one-third-->
 						<article class="one-third wow fadeInDown">
 							<dl class="basic">
-								<dt>Время подготовления</dt>
+								<dt class="duration">Время подготовления</dt>
 								<dd><%= @recipe.pre_time %></dd>
 								<dt>Время приготовления</dt>
 								<dd><%= @recipe.cook_time %></dd>
@@ -61,22 +62,24 @@
 							<dl class="user">
 								<dt>Категория</dt>
                 <% if @recipe.categories.any? %>
-                  <dd><%= render @recipe.categories %></dd>
+                  <dd class="category"><%= render @recipe.categories %></dd>
                 <% else %>
                   <dd>Не указана</dd>
                 <% end %>
-								<dt>Автор</dt>
+								<dt class="author">Автор</dt>
 								<dd><%= link_to "#{@recipe.user.chefname}", user_path(@recipe.user) %></dd>
 								<dt>Дата</dt>
-								<dd><%= @recipe.created_at.strftime("%d. %b. %Y") %></dd>
+								<dd class="published"><%= @recipe.created_at.strftime("%d. %b. %Y") %></dd>
 							</dl>
 						
 							<dt class="ingr">Ингредиенты:</dt>
 
 							<dl class="ingredients">
 								<% @recipe.ingredients.each do |ing| %>
-									<dt><%= ing.quantity %></dt>
-									<dd><%= ing.name %></dd>
+									<li class="ingredient">
+										<dt><span class="amount"><%= ing.quantity %></span></dt>
+										<dd><span class="name"><%= ing.name %></span></dd>
+									</li>
 								<% end %>
 							</dl>
 						</article>
@@ -92,28 +95,11 @@
 				<aside class="sidebar one-fourth wow fadeInRight">
 					<%= render 'recipes/random_recipe' %>
 					
-					<div class="widget share">
-						<ul class="boxed">
-							<li class="light"><a href="#" title="Facebook"><i class="ico i-facebook"></i> <span>Share on Facebook</span></a></li>
-							<li class="medium"><a href="#" title="Twitter"><i class="ico i-twitter"></i> <span>Share on Twitter</span></a></li>
-							<li class="dark"><a href="#" title="Favourites"><i class="ico i-favourites"></i> <span>Add to Favourites</span></a></li>
-						</ul>
-					</div>
+					<%= render 'recipes/share' %>
 					
-					<!-- <div class="widget members">
-						<h3>Members who liked this recipe</h3>
-						<ul class="boxed">
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar1.jpg" alt="" /><span>Kimberly C.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar2.jpg" alt="" /><span>Alex J.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar3.jpg" alt="" /><span>Denise M.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar9.jpg" alt="" /><span>Jason H.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar8.jpg" alt="" /><span>Jennifer W.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar4.jpg" alt="" /><span>Anabelle Q.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar7.jpg" alt="" /><span>Thomas M.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar5.jpg" alt="" /><span>Michelle S.</span></a></div></li>
-							<li><div class="avatar"><a href="my_profile.html"><img src="images/avatar6.jpg" alt="" /><span>Bryan A.</span></a></div></li>
-						</ul>
-					</div> -->
+					<%= render 'pages/categories' %>
+
+					<%= render 'pages/widget_members' %>
 				</aside>
 				<!--//right sidebar-->
 		

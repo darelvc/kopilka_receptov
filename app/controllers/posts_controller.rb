@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@comments = @post.comments.with_state([:draft, :published])
 	end
 
 	def new
