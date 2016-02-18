@@ -30,6 +30,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 
 gem 'thinking-sphinx', '~> 3.1.4'
 gem 'mysql2'
+gem 'meta-tags'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 

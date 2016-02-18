@@ -8,7 +8,7 @@
 				<h1>Едим глазами</h1>
 			</header>
 			<% @eat_eyes.each do |recipe| %>
-				<div class="entry one-fourth wow fadeInLeft" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
+				<div class="entry one-fourth wow fadeInLeft eat_eyes" data-wow-delay="<%= cycle(".2s", ".4s", ".8s") %>">
 					<figure>
 						<%= image_tag recipe.recipe_image.url(:medium) %>
 						<figcaption>

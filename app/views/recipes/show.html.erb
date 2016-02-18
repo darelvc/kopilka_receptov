@@ -28,10 +28,19 @@
 					<div class="recipe">
 						<!--two-third-->
 						<article class="two-third wow fadeInLeft">
-							<div class="image">
-								<%= link_to '' do %>
+							<div class="image entry">
+								<figure>
 									<%= image_tag @recipe.recipe_image.url(:large) %>
-								<% end %>
+									<% if user_signed_in? %>
+										<% if current_user.admin? || current_user.id == @recipe.user.id %>
+											<figcaption>
+												<%= link_to edit_recipe_path(@recipe) do %>
+													<i class="ico i-posts"></i> <span>Редактировать рецепт</span>
+												<% end %>
+											</figcaption>
+										<% end %>
+									<% end %>
+								</figure>
 							</div>
 							<div class="intro" data-no-turbolink><p class="summary"><%= raw @recipe.summary %></p></div>
 							<div class="embed-container">  
@@ -98,6 +107,8 @@
 					<%= render 'recipes/share' %>
 					
 					<%= render 'pages/categories' %>
+
+					<%= render 'pages/small_search' %>
 
 					<%= render 'pages/widget_members' %>
 				</aside>

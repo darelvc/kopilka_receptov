@@ -1,8 +1,10 @@
 class RecipesController < ApplicationController
 	before_action :find_recipe, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
-	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authenticate_user!, except: [:index, :show, :eat_eyes]
+	
 
 	def index
+		#prepare_meta_tags title: "Кулинраные рецепты", description: "Все самые лучшие рецепты собранные в одном месте"
 		@recipe = Recipe.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
 	end
 

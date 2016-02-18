@@ -1,0 +1,11 @@
+<div class="widget">
+	<h3>Поиск</h3>
+	<%= form_tag(searches_path, :method => "get", id: "search-form") do %>
+		<div class="f-row">
+		  <%= text_field_tag :search, params[:search], placeholder: "Введите поисковое слово" %>
+		</div>
+		<div class="f-row">
+			<%= submit_tag "Найти" %>
+		</div>
+	<% end %>
+</div>

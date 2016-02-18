@@ -13,7 +13,7 @@
 		</figure>
 		<div class="container">
 			<h2><%= link_to recipe_path(obj) do %><%= obj.title %><% end %></h2>
-			<p><%= raw obj.summary.truncate(120)%></p>
+			<p><%= raw obj.summary.truncate(250)%></p>
 			<div class="actions">
 				<div>
 					<%= link_to 'Рецепт полностью', recipe_path(obj), class: "button" %>
