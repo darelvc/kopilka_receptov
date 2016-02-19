@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
 	
 
 	def index
-		#prepare_meta_tags title: "Кулинраные рецепты", description: "Все самые лучшие рецепты собранные в одном месте"
+		prepare_meta_tags title: "Кулинраные рецепты", description: "Все самые лучшие рецепты собранные в одном месте"
 		@recipe = Recipe.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 12)
 	end
 
@@ -12,6 +12,12 @@ class RecipesController < ApplicationController
 		@comments = @recipe.comments.with_state([:draft, :published])
 		#@category = Category.find(params[:id])
 		@random_recipe = Recipe.where.not(id: @recipe).order("RANDOM()").first
+
+		### SEO ###
+		@page_title = @recipe.title
+		@page_description = @recipe.summary.truncate(150)
+		prepare_meta_tags(image: @recipe.recipe_image.url(:large),
+											og: {title: @recipe.title, image: @recipe.recipe_image.url(:large)})
 	end
 
 	def new
